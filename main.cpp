@@ -1,21 +1,21 @@
 class Solution {
 public:
-    int getCount(int &num) {
-        int res = 0;
+    bool getCount(int &num) {
+        bool isEven = true;
         
         while (num != 0) {
             num /= 10;
-            res++;
+            isEven = isEven ? false : true;
         }
         
-        return res;
+        return isEven;
     }
     
     int findNumbers(vector<int>& nums) {
         int count = 0;
         
         for (int i = 0; i < nums.size(); ++i) {
-            if (getCount(nums[i]) % 2 == 0) {
+            if (getCount(nums[i])) {
                 count++;
             }
         }
